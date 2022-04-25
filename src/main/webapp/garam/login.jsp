@@ -1,6 +1,10 @@
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.DriverManager"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>    
 <!DOCTYPE html>
+
 <html>
 <head>
   <meta charset="UTF-8">
@@ -15,9 +19,11 @@
         <img src="./img/logo.png">
 
         <div class="a01">
-            <div><span>ID</span><input type="text"></div>
-            <div><span>PW</span><input type="text"></div>
-            <button><a href="mypage.jsp">Log in</a></button>
+        <form method="post" action="loginAct.jsp">
+            <div><span>ID</span><input type="text" name="uid"></div>
+            <div><span>PW</span><input type="password" name="upw"></div>
+            <button>Log in</button>
+        </form>
         </div>
 
         <div class="cscenter">

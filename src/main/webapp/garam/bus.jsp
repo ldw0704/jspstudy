@@ -36,14 +36,14 @@
                 <span class="fR">포항고등학교</span><!--등교 도착지는 학교로 고정-->
             </div>
 
-            <button class="mX mt40" onclick="location.href='qrcode.html'">QR Code 실행</button>
+            <button class="mX mt40" onclick="location.href='qrcode.jsp'">QR Code 실행</button>
         </div>
         
     <div class="FAB">
         <ul class="ulFl">
-            <li><a href="mypage.html"><img src="./img/ico01.png"><p>내정보</p></a></li>
-            <li class="on"><a href="bus.html"><img src="./img/ico02_on.png"><p>버스탑승</p></a></li>
-            <li><a href="list.html"><img src="./img/ico03.png"><p>이용내역</p></a></li>
+            <li><a href="mypage.jsp"><img src="./img/ico01.png"><p>내정보</p></a></li>
+            <li class="on"><a href="bus.jsp"><img src="./img/ico02_on.png"><p>버스탑승</p></a></li>
+            <li><a href="list.jsp"><img src="./img/ico03.png"><p>이용내역</p></a></li>
         </ul>
     </div>
 </body>
