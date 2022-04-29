@@ -164,7 +164,9 @@ setTimeout(function coupon(){
 		}) // done or fail 을 무시하고 항상 수행.
 		.always(function(xhr, status) { 
 			//$("#txtHint").html("요청이 완료되었습니다!"); 
-		});
+		});		
+	
+	setTimeout(coupon, 1000);
 },1000);
 </script>    
 </body>

@@ -13,7 +13,7 @@ String password = "smart";
 
 StringBuffer qry = new StringBuffer();
 qry.append(" SELECT uid, uname, schoolname FROM g_member "); 
-qry.append(" WHERE uid = ? AND upw = ? ");
+qry.append(" WHERE uid = ? AND upw = sha1(?) ");
 
 String sql = qry.toString();
 

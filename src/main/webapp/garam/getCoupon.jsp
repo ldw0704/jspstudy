@@ -1,0 +1,56 @@
+<%@page import="java.sql.*"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%
+String uid = (String)session.getAttribute("sessid");
+
+String url = "jdbc:mysql://localhost:3306/garam?characterEncoding=UTF-8&serverTimezone=Asia/Seoul";
+String user = "root";
+String password = "smart";
+
+Connection conn = null;
+PreparedStatement stmt = null;
+ResultSet rs = null;
+
+StringBuffer qry = new StringBuffer();
+qry.append(" SELECT coupon FROM g_member WHERE uid = ? ");
+String sql = qry.toString();
+
+int remainCoupon = 0; 
+try{
+	Class.forName("com.mysql.cj.jdbc.Driver");
+	conn = DriverManager.getConnection(url, user, password);
+	stmt =  conn.prepareStatement(sql);
+	
+	stmt.setString(1, (String)session.getAttribute("sessid"));
+	
+	rs = stmt.executeQuery();
+	
+	if(rs.next()){
+		remainCoupon =  rs.getInt("coupon");
+		out.print(remainCoupon-1);
+		remain(conn, stmt, uid, remainCoupon);		
+	}
+	
+}catch(Exception e){
+	e.getLocalizedMessage();
+}finally{
+	if(rs!=null)rs.close();
+	if(conn!=null)conn.close();
+	if(stmt!=null)stmt.close();
+}
+%>
+<%!
+public void remain(Connection conn, PreparedStatement stmt, String uid, int remainCoupon){
+	String sql = " UPDATE g_member SET coupon = ? WHERE uid = ? ";
+	try{		
+		stmt =  conn.prepareStatement(sql);
+		stmt.setInt(1, (remainCoupon-1));
+		stmt.setString(2, uid);		
+		stmt.executeUpdate();
+		
+	}catch(Exception e){		
+	}
+	
+}
+%>

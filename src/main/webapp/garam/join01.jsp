@@ -290,6 +290,7 @@
     </div>
 <script>
 $(document).ready(function(){
+	
 	$("button[type=submit]").on("click",function(){
 		var agree1 = $("#agree1").prop("checked");
 		var agree2 = $("#agree2").prop("checked");
@@ -311,8 +312,52 @@ $(document).ready(function(){
 		}else{
 			$(".agreebox").prop("checked",false);			
 		}		
-	});		
+	});
 	
+	var x=0,y=0,z=0;
+	$("#agree1").click(function(){
+		
+		if($("#agree1").prop("checked")){
+			x = 1;			
+		}else{
+			x = 0;
+		}		
+		if(x+y+z == 3){
+			$("#agreeall").prop("checked",true);
+		}else{
+			$("#agreeall").prop("checked",false);
+		}
+		
+	});
+	
+	$("#agree2").click(function(){
+		
+		if($("#agree2").prop("checked")){
+			y = 1;			
+		}else{
+			y = 0;
+		}		
+		if(x+y+z == 3){
+			$("#agreeall").prop("checked",true);
+		}else{
+			$("#agreeall").prop("checked",false);
+		}
+		
+	});
+	$("#agree3").click(function(){
+		
+		if($("#agree3").prop("checked")){
+			z = 1;			
+		}else{
+			z = 0;
+		}		
+		if(x+y+z == 3){
+			$("#agreeall").prop("checked",true);
+		}else{
+			$("#agreeall").prop("checked",false);
+		}
+		
+	});
 });
 
 function frmchk(){

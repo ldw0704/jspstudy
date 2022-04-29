@@ -40,9 +40,7 @@
 		if(rs!=null)rs.close();
 		if(conn!=null)conn.close();
 		if(stmt!=null)stmt.close();
-	}
-	
-	
+	}	
 %>
 <%! //<%! 변수나 메소드선언할때 !사용 !없으면 main아래만 사용
 public void updateLoc(Connection conn, PreparedStatement stmt, String uid, String lat, String lon){
